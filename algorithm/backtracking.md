@@ -78,9 +78,72 @@ private:
 };
 ```
 
-### 八皇后问题
-> 问题：
+### N皇后问题
+> 问题：设计一种算法，打印 N 皇后在 N × N 棋盘上的各种摆法，其中每个皇后都不同行、不同列，也不在对角线上。这里的“对角线”指的是所有的对角线，不只是平分整个棋盘的那两条对角线。
 
 > 示例：
+```
+输入：4
+ 输出：[[".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.."]]
+ 解释: 4 皇后问题存在如下两个不同的解法。
+[
+ [".Q..",  // 解法 1
+  "...Q",
+  "Q...",
+  "..Q."],
 
+ ["..Q.",  // 解法 2
+  "Q...",
+  "...Q",
+  ".Q.."]
+]
+```
 > 解法：
+```c++
+vector<vector<string>> solveNQueens(int n) {
+    vector<vector<string>> res;
+    vector<string> board(n,string(n,'.'));
+    backtrack(res,board,0);
+    return res;
+}
+
+void backtrack(vector<vector<string>> &res,
+               vector<string> &board,int row){
+    if(board.size() == row){//棋盘满了
+        res.push_back(board);
+        return;
+    }
+
+    int n = board.size();
+    for(int col = 0; col < n; col++){
+        if(!isValid(board,row,col)){//落子无效
+            continue;
+        }
+        //选择
+        board[row][col] = 'Q';
+        backtrack(res,board,row+1);//进入下一决策
+        //撤销选择
+        board[row][col] = '.';
+    }
+}
+
+bool isValid(const vector<string> &board, int row, int col){
+    int n = board.size();
+    int cl = col-1;
+    int cr = col+1;
+    //同一列，左上，右上有没有
+    for(int r = row-1; r >= 0; r--){
+        if(board[r][col] == 'Q'){
+            return false;//同一列没有
+        }
+        if(cl >= 0 && board[r][cl] == 'Q'){
+            return false;//左上没有
+        }
+        if(cr < n && board[r][cr] == 'Q'){
+            return false;//右上没有
+        }
+        cl--;cr++;
+    }
+    return true;
+}
+```
