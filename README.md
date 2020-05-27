@@ -9,3 +9,4 @@
 
 # 一些tricks
 - [位运算符](tricks/bitwise_operators.md)
+- [整型溢出](tricks/integer_overflow.md)
