@@ -33,3 +33,11 @@ while(cur){
   cur = next;//后一个节点往后挪
 }
 ```
+### 递归遍历
+```c++
+void traverse(ListNode *head){
+  if(!head)
+    return;
+  traverse(head->next);
+}
+```
