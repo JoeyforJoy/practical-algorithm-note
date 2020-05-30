@@ -11,3 +11,4 @@
 - [位运算符](tricks/bitwise_operators.md)
 - [整型溢出](tricks/integer_overflow.md)
 - 当需要重复移动数组中的元素时，可以尝试从后面开始遍历移动。eg.《剑指offer》第5题
+- 形参是容器时，可以考虑用迭代器来作为形参，来节省空间，尤其当容器作为迭代函数的形参时
