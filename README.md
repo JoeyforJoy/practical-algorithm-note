@@ -4,6 +4,7 @@
 
 # 算法
 - [回溯算法](algorithm/backtracking.md)
+- [动态规划](algorithm/dynamic_planning.md)
 
 # 数据结构
 - [链表](data_structure/linked_list.md)
