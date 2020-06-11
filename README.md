@@ -8,6 +8,7 @@
 
 # 数据结构
 - [链表](data_structure/linked_list.md)
+- [栈](data_structure/stack.md)
 # 一些tricks
 - [位运算符](tricks/bitwise_operators.md)
 - [整型溢出](tricks/integer_overflow.md)
