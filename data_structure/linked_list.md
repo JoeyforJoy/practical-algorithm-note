@@ -27,7 +27,7 @@ p2->next->next = p2;//让 p3 指向 p2
 ### 反转链表
 ```c++
 while(cur){
-  next= cur->next;//保留下一个节点
+  next = cur->next;//保留下一个节点
   cur->next = pre;//指向前一个节点
   pre = cur;//前一个节点往后挪
   cur = next;//后一个节点往后挪
